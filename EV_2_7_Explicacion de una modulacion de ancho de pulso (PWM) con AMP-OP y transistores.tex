@@ -1,0 +1,70 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Irad Yabhel Sanchez Lopez}
+\title{Transistores de potencia }
+\begin{document}
+
+\title{•UNIVERSIDAD POLITECNICA DE LA ZONA METROPOLITANA DE GUADALAJARA}
+
+
+\chapter{EV 2 7 Diseño de modulacion de ancho de pulso (PWM) con amp-op y transistores}
+
+
+\begin{flushleft}
+¿Qué es una Señal Modulada por Ancho de Pulso (PWM) y Para Qué es Utilizada?
+
+
+La modulación de ancho de pulso (PWM, por sus siglas en inglés) de una señal es una técnica que logra producir el efecto de una señal analógica sobre una carga, a partir de la variación de la frecuencia y ciclo de trabajo de una señal digital. El ciclo de trabajo describe la cantidad de tiempo que la señal está en un estado lógico alto, como un porcentaje del tiempo total que esta toma para completar un ciclo completo. La frecuencia determina que tan rápido se completa un ciclo (por ejemplo: 1000 Hz corresponde a 1000 ciclos en un segundo), y por consiguiente que tan rápido se cambia entre los estados lógicos alto y bajo. Al cambiar una señal del estado alto a bajo a una tasa lo suficientemente rápida y con un cierto ciclo de trabajo, la salida parecerá comportarse como una señal analógica constante cuanto esta está siendo aplicada a algún dispositivo.
+
+\includegraphics[scale=1]{11.jpg} 
+
+Este tipo de señales son de tipo cuadrada o “sinusiodales” en las cuales se les cambia el ancho relativo respecto al período de la misma, el resultado de este cambio es llamado ciclo de trabajo y sus unidades están representadas en términos de porcentaje. Matemáticamente se tiene que:
+ 
+D = ciclo de trabajo
+  = tiempo en que la señal es positiva
+T = Período
+Para emular una señal analógica se cambia el ciclo de trabajo (duty cicle en inglés) de tal manera que el valor promedio de la señal sea el voltaje aproximado que se desea obtener, pudiendo entonces enviar voltajes entre 0[V] y el máximo que soporte el dispositivo PWM
+
+\begin{figure}[hbtp]
+\caption{•}
+\centering
+\includegraphics[scale=1]{12.png}
+\end{figure}
+
+\includegraphics[scale=1]{13.png} 
+\includegraphics[scale=1]{14.png} 
+
+Para poder llevar acabo este proceso es necesario una configuracion de amplificador operacional esto se puede hacer con cualquier amplificador, se coloca en el proto el amplificador, se requiere una fuente de alimentacion armando la primera parte con una resistencia hacia tierra de 4.7k ohm que vendria siendo la inversora.
+
+otra resistencia de de 10 k ohm (cafe negro naranja).
+ahora se coloca el inversor del amplificador el cual se conecta tambien a tierra asi mismo se conecta el negativo a la inversora.
+se coloca otra resistecia con otra entrada inversora  con resistencia de 4.7 k y un capacitor de 100 nf.
+ por lo tanto se requiere para este ejercicio
+ 
+ resistencias de 4.7 k
+ resistencia de 10 k
+ capacitor de 100 nf
+ TL084 Transistor
+ Potenciometro
+ 
+ 
+ https://www.youtube.com/watch?v=-__Q2vH-pZg
+ 
+ se obtiene una señal triangular donde muestra que funcional de pwn.
+ \n
+ Para qué sirve PWM
+ \n
+ 
+Tenemos que tener en cuenta distintos factores a la hora de hablar de los usos prácticos de la función PWM. Con el paso de los años y desde que la PWM entrara en vigor, las placas madre contaron con sensores de temperatura, consultables desde la bios del equipo. A partir de ese momento se impuso reducir el ruido de la CPU, haciendo que el ordenador reaccionara de distintas maneras en base al contexto. Si por ejemplo, estamos utilizando el equipo con el objetivo de descargar archivos, como demos de videojuegos, realmente el ordenador no necesita una potencia superior a la mínima. En estos casos la CPU no se calienta, no necesita el ventilador y se debe evitar gastar energía de forma innecesaria.
+Cuando montamos un ordenador que deba poder ofrecer un rendimiento de primer nivel, pensamos en incluir la mayor potencia de ventilación, para que en situaciones críticas estos ventiladores puedan funcionar a toda máquina con el objetivo de evitar problemas en el equipo. Pero esta configuración se desaprovecha en momentos como en el ejemplo citado de la descarga de archivos. En estas situaciones no es necesario que el ventilador gire a toda velocidad, sino que se puede mantener en los niveles mínimos. La función PWM es una manera de regularlo. Para perfeccionar esto se le añadió un cable adicional que manda una señal de la velocidad a la que está funcionando el ventilador. La placa base se encarga de regular la velocidad a la que debe ir el ventilador en cada momento. Si el equipo se calienta mucho, le dice con una señal que debe trabajar más. Para ello hay que configurar el ordenador desde la bios siempre pensando en obtener los menores índices de ruido.
+Para que la función PWM tenga más sentido y sea más completa, existen accesorios que se encargan de llevar esa señal a otros ventiladores que también se puedan beneficiar de ella. El objetivo común es mejorar lo máximo posible el rendimiento de estos equipos.
+
+ 
+
+\end{document}
+\end{flushleft}
