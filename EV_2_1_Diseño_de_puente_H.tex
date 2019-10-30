@@ -1,0 +1,44 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{cancel}
+
+\begin{document}
+\begin{center}
+\textbf{Practica3}\\ 
+EV_2_1_Diseño_de_puente_H
+\end{center}
+
+\begin{center}
+Sanchez Lopez Irad Yabhel\\
+29-OCT-2019\\
+Universidad Politecnica de La Zona Metropolitana de Guadalajara
+\end{center}
+
+
+\section{Objetivo de la Practica}
+
+enerar un circuito realizando el puente H 
+
+¿Qué es un puente H?
+El puente H  es un circuito electrónico que permite a un motor eléctrico DC girar en ambos sentidos, avanzar y retrocerder.
+
+Los puentes H ya vienen hechos en algunos circuitos integrados, pero también se pueden construir a partir de componentes eléctricos y/o electronicos.
+
+Un puente H se construye con 4 interruptores (mécanicos o mediante transistores). Cuandos los interruptores S1 y S4 están cerrados ( S2 y S3 abiertos ) se aplica una tensión haciendo girar el motor en un sentido. Abriendo los interruptores S1 y S4 ( cerrando S2 y S3 ), el voltaje se invierte, permitiendo el giro en sentido inverso del motor.
+
+Un puente H no solo se usa para invertir el giro de un motor, también se puede usar para frenarlo de manera brusca, al hacer un corto entre los bornes del motor, o incluso puede usarse para permitir que el motor frene bajo su propia inercia, cuando desconectamos el motor de la fuente que lo alimenta.
+
+básicamente se puede hacer esto tomando en cuenta la siguiente tabla.
+
+Material requerido para le armado del proto.
+2 transistores 2N2222 que son los que conmutaran las salidas.
+4 transistores TIP31 los cuales actuaran como interruptores.
+4 Diodos rectificadores para crear un puente de diodos a manera que limpien la señal analógica y se pueda usar el motor de corriente directa.
+
+\includegraphics[scale=1]{ph12.png} 
+
+
+\end{document}
