@@ -1,0 +1,157 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{cancel}
+
+\begin{document}
+\begin{center}
+\textbf{TAREA7}\\ 
+EV 2-8 Calcular los parametros de circuitos de transistores de potencia
+\end{center}
+
+\begin{center}
+Sanchez Lopez Irad Yabhel\\
+29-OCT-2019\\
+Universidad Politecnica de La Zona Metropolitana de Guadalajara
+\end{center}
+
+
+\section{Que es?}
+Los transistores se utilizan para manejar o amplificar una corriente, con una determinada ganancia (B o hFE).
+Una pequeña corriente en la base puede regular otra corriente mucho mayor.
+Pero existen diferentes tipos según su propósito o utilidad diferenciados por su correspondiente símbolo.
+\section{Tipos de transistor:}
+En la siguiente imagen ver un esquema de los diferentes tipos de transistores:
+
+Además en cada grupo, podemos encontrar sub-grupos como en el caso de los transistores de efecto campo:
+Encapsulado:
+Dependiendo de la potencia que queramos manejar, debemos escoger un tipo de encapsulado u otro.
+Por ejemplo, si necesitamos manejar voltajes de hasta 50V y 1A, necesitaremos utilizar un disipador, por tanto, elegiremos el tipo TO-3 o TO-220.
+
+Nomenclatura:
+Su nomenclatura para designarlos consiste en un código según las letras de su nombre:
+-Código que comienza por B o A (por ejemplo, BC547):
+La primera letra designa la composición, A es para germanio y B para silicio.
+La segunda letra designa las condiciones de funcionamiento habitual, por ejemplo, C significa baja potencia, D significa alta potencia, F significa baja frecuencia, G significa alta potencia.
+También pueden designarse modelos específicos añadiendo una última letra final, por ejemplo, si queremos resaltar un modelo con más ganancia que el resto de su clase, puede diferenciarse el BC180C del BC180 que es genérico.
+-Código que comienzan por TIP:
+TIP:Transistor de Potencia Texas Instruments. La letra al final identifica los diferentes rasgos de voltaje, por ejemplo, TIP31C.
+-Código que comienza por 2N:
+2N: Designa al componente utilizado como transistor, el resto de nomenclatura se utiliza para designar los diferentes modelos.
+Tipo de conexión:
+En el siguiente enlace podéis ver las ecuaciones que se utilizan para calcular los parámetros de funcionamiento.
+ Fórmulas para calcular transistores
+Especificaciones:
+-Dependiendo de su utilidad:
+Utilizar el transistor como amplificado o como interruptor(switch).
+Circuitos basados en transistores pueden funcionar como amplificadores de audio, reguladores de tensión, inversores, interruptor de sensores(temperatura, campo magnético, presión, humedad...  actuadores(motores, luces, servo motores, relés...)
+-Dependiendo del circuito:
+La potencia a controlar y la intensidad en la base para poder conducir el transistor desde corte a saturación(si fuera necesario).
+La frecuencia de conmutación que puede trabajar el transistor.
+Los picos máximos de intensidad que puede soportar y su duración.
+-Dependiendo de su funcionamiento:
+Nesitaremos disipar potencia en forma de calor utilizando dispositivos térmicos, ventiladores, etc.
+La potencia disipada determina el tipo de encapsulado, además de sus dimensiones y conexión.
+Considerar siempre los parámetros de su hoja de características o datasheet en el proceso de diseño de nuestros circuitos.
+Utilizar circuitos de protección para alargar la vida del transistor y evitar daños, como circuitos de amortiguamiento o snubbers, diodos de protección, reguladores de tensión e intensidad, limitadores basados en diodos zener, entre otros...
+Cuando tengamos estas consideraciones en cuenta, a la hora de adquirir el transistor puede que el modelo en concreto no este disponible, para estos casos, debemos buscar otro modelo compatible.
+Elección del transistor:
+Los pasos para reducir la búsqueda de una larga lista a pocos modelos serán los siguientes:
+1.-Saber el tipo de transistor necesario, por ejemplo:BJT,MOSFET; IGBT...
+2.-Una vez conocemos el tipo, concretamos un modelo de funcionamiento, por ejemplo: Los BJT, pueden ser NPN o PNP.
+3.-Su utilidad desde el circuito, por ejemplo: Para alta frecuencia de conmutación, utilizar un MOSFET en lugar de un BJT, para circuito amplificador utilizar un tipo Darlinton.
+4.-El rango de trabajo habitual, por ejemplo: necesitaremos un transistor que pueda manejar 50V y 0.9A, una posible elección es el 2N3055 que puede manejar esos valores entre colector y emisor.
+5.-Al conocer las condiciones de trabajo, utilizar un tipo de encapsulado u otro.
+6.-Comprobar las especificaciones en su hoja de características o datasheet para verificar que los valores máximos de corriente y voltaje son admisibles.
+7.-Si tenemos la posibilidad y los conocimientos necesarios, simular el circuito  previamente para verificar el correcto funcionamiento.
+8.-Montar en una protoboard de los componentes del circuito y realizar las primeras pruebas, sobre todo de refrigeración, comportamiento en alta frecuencia...
+Una vez, tenemos nuestro propósito específico fijado, y conocemos algunos parámetros no siempre tenemos toda la información que necesitamos...
+Para estos casos, debemos de disponer de ciertos conocimientos para realizar algunos cálculos sencillos, que nos ofrecen la información necesaria.
+Circuito de polarización en emisor común:
+Por ejemplo, si necesitamos controlar un tipo de carga (Rc) mediante un transistor conectado en emisor común, para calcular la resistencia necesaría en la base podemos utilizar un programa de simulación de circuitos y comparar los resultados obtenidos.
+Por ejemplo, si queremos estudiar los parámetros del transistor 2N2222, colocamos amperímetros y voltímetros y realizamos las siguientes pruebas:
+Colocamos una resistencia variable en la base del transistor (Rb) y estudiamos los valores de la intensidad en la base, y la intensidad en el colector, y la tensión Base-Emisor y la tensión Colector-Emisor.  
+En este caso, la Resistencia del colector es baja(Rc=50ohms) y aumenta la intensidad del colector(Ic=235,124mA) conforme Rc tiende a 0.
+En este caso, La resistencia en el colector aumenta (Rc=300ohgms) y la intensidad en el colector disminuye(Ic=39,826mA).
+Cuando tenemos fijada la resistencia del colector, que será equivalente a la carga que pongamos, por ejemplo un motor, o una bombilla, ajustamos la resistencia en la base(Rb).
+Como podemos observar, a menor resistencia en la base(Rb=5% de 2KΩ), aumenta la intensidad en la base(Ib=107,456mA) 
+Si no utilizamos resistencia en la base del transistor podemos quemar el componente y dañarlo de manera irreparable. Si colocamos a 0 el valor de la resistencia en la base (Rb=0), observamos que el valor de intensidad en la base aumenta(Ib=14,294A) a valores que el componente no soporta.
+ Cuando tenemos nuestro transistor en valores adecuados, debemos tener en cuenta que también existen rangos mínimos de funcionamiento, por ejemplo, si tenemos una intensidad en la base baja como para que no excite el transistor, este no conducirá corriente.
+Los valores de referencia para cada componente se encuentran en su hoja de caracteristicas o datasheet que nos ofrece el fabricante.
+En la imagen se puede comprobar los parámetros de funcionamiento del transistor 2N2222 y comprobamos que las pruebas realizadas no exceden los valores establecidos.
+Como no todos los usuarios disponen de la posibilidad de utilizar un programa de simulación de circuitos en cualquier momento y situación, se puede recurrir de otra manera a la información que necesitamos mediante el uso de ecuaciones.
+Para el uso de ecuaciones, debemos conocer también algunos aspectos del circuito.
+-Circuito de polarización fija:
+Determinamos el punto Q de trabajo del transistor.
+Utilizamos la ecuación de la Recta de carga, que relaciona la intensidad en el colector con la tensión entre colector y emisor.
+Ecuación recta de carga para Ic: Vcc = Vce + (Ic x Rc)
+Ecuación recta de carga para Ie  : Vcc = Vbe + (Re x Ie)
+El transistor en base-emisor de comporta como un diodo, por eso la tensión base-emisor suele estar próxima a 0.7V
+Ic = B x Ib
+Ib = (Vcc - 0.7) / Rb
+Para aplicar estas expresiones, se explica un caso a modo de ejemplo:
+Ejemplo: Circuito de 12VDC, una Rc=220, Rb=68k y necesitamos conocer los valores de Ib y Vce.
+Realizamos una primera valoración, donde se debe cumplir de forma aproximada:
+Para Ic=0, Vce= Vcc=12V. Para Vce=0, Ic= Vcc/ Rc = 12/220=54,54mA.
+Si  tenemos Ib=165,534uA, Ic= 45,631mA y necesitamos hallar la tensión entre el coleector y emisor: 
+Vce = Vcc - (Ic * Rc) = 12V - (0,045631A * 220)= 1,9611 
+Como podemos comprobar, los datos calculados y obtenidos en la simulación son compatibles.
+Para verificar nuestros calculos, realizaremos otra demostración:
+Si no tenemos de la Intensidad en la base, podemos calcular un valor muy aproximado mediante la siguiente expresión:
+Ib=(Vcc-0,7V) / Rb = 12V - 0,7V / 68k = 0,16617mA = 166,17uA
+La recta de carga y el Punto Q de trabajo se representan en la siguiente gráfica:
+ Una de las aplicaciones que más importacnia tiene el cálculo de transistores en electrónica y programación de circuitos es adecuar la señal de activación de un microcontrolador a otro circuito de más potencia, por ejemplo muchos circuitos de Arduino que encontramos por internet para controlar buzzer o motores.
+ Como Arduino tiene unos valores de tensión de 5V e intensidad unos 20mA en sus salidas, podemos elegir un transistor que trabaje con esos valores y adecuar una resistencia en la base para no dañar el transistor.
+Otro método para controlar los estados de la salida de Arduino es la utilización de resistencias tipo pull-up y pull-down, que sirven para mantener un estado lógico en las salidas digitales sin que el ruido eléctrico pueda causar falsos estados, siendo pull-up un estado lógico alto(1) y pull-down un estado logico bajo(0).
+El valor típico de estas resistencia suele ser elevado, en torno a 10k, y permiten mantener el estado lógico a 5V o 0V.
+Para el caso concreto de Arduino, podemos programar una resistencia tipo pull-up a nivel de software. Es tan sencillo como escribir el siguiente código, ahorrando cableado en nuestro circuito:
+Fórmula 1
+Trigger current o corriente de disparo:
+IT = ICO / (1 - a1 + a2)
+Donde:
+IT es la corriente de disparo en ampères (A)
+ICO es la corriente de fuga en ampères (A)
+a1 es la ganancia del primer transistor
+a2 es la ganancia del segundo transistor
+Obs: el parámetro IT usualmente es dado por el fabricante del SCR y está en el rango entre 0,1 mA y 100 mA para los tipos más comunes como los de la serie TIC de Texas.
+Fórmula 2
+Potencia por ciclo:
+Pd = (UA x IA x tr) / 4.6
+Donde:
+Pd es la potencia disipada por ciclo en watts (W)
+UA es la tensión de ánodo antes del disparo en volts (V)
+IA es la corriente de ánodo después del disparo en ampères (A)
+tr es el tiempo de conmutación para la tensión de anodo-cátodo cae del 90% del valor máximo al 10% en segundos (s)
+Fórmula 3
+Promedio de energía o potencia media:
+Pd = (f x UA x IA x tr) / 4.6
+Donde:
+Pd es la disipación media de potencia en watts (W)
+ f es la frecuencia de conmutación en hertz (Hz)
+UA es la tensión de ánodo antes de la conmutación en volts (V)
+IA es la corriente de ánodo después de la conmutación en ampères (A)
+Fórmula 4
+Aplicaciones DC:
+Pd = Us * Id
+Donde:
+Pd es la potencia disipada en watts (W)
+Us es la caída de tensión en el SCR en el estado de conducción también, llamada tensión de saturación en volts (V)
+Id es la corriente directa en amperios (A) 
+Nota: Para los SCR comunes el valor típico de Uf es 2.0 V.
+Fórmula 5
+Tensión de carga * Retardo en el disparo (ángulo a) - aplicaciones de media onda
+UL = [ Up / (2 * 3.1416 ) ] * (1 + cos a)
+Donde:
+UL es la tensión en la carga (instantánea en volts (V)
+Es la tensión de pico de la tensión senoidal de entrada en volts (V)
+pi es 3.1416
+cos a es el coseno del ángulo de conducción en grados
+TRIAC
+Los TRIACS son dispositivos conmutadores de potencia pudiendo ser considerados como dos SCRs en paralelo y oposición como muestra la figura 2. En esta configuración los TRIAC pueden controlar corrientes de los dos sentidos. Para efectos de cálculos los TRIACS pueden ser considerados como dos SCRs conectados en paralelo y en oposición.
+Un transistor puede ser activado (saturación) o desactivado (corte) desde un microcontrolador, pero es necesario poner una resistencia entre la pata del micro y la base del transistor. En este artículo explicaré como se puede calcular de una forma sencilla.
+Dependiendo de la carga que queramos manejar debemos seleccionar un transistor NPN u otro. No es lo mismo usar un BC107 que permite tensiones de hasta 45 V. y corrientes de hasta 100 mA. que un 2N3055 que permite tensiones de hasta 60 V. y corrientes de hasta 15 A. Aquí podemos ver unos cuantos para ver cuál se adapta mejor a nuestras necesidades. Por eso debemos saber qué corriente pasa por el punto donde queremos poner el transistor para que actúe como interruptor.
+Una vez que hemos seleccionado el transistor , debemos calcular qué resistencia debemos poner entre la patilla del microcontrolador que elijamos y la patilla base del transistor. Para eso primero debemos saber qué hFe (ganancia de corriente) mínima tiene nuestro transistor y nada mejor que consultar el datasheet para saber ese dato.
+Después con la siguiente fórmula ya podemos calcular qué resistencia necesitamo
+\end{document}
